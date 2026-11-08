@@ -9,7 +9,7 @@
 
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, shareReplay, map } from 'rxjs';
+import { Observable, shareReplay, map, catchError, throwError } from 'rxjs';
 import { PortfolioData, Experience, CommandResult } from '../models/portfolio.models';
 
 @Injectable({ providedIn: 'root' })
@@ -18,8 +18,15 @@ export class DataService {
 
   // Cached data stream — only one HTTP request is ever made
   private data$: Observable<PortfolioData> = this.http
-    .get<PortfolioData>('/assets/data/data.json')
-    .pipe(shareReplay(1));
+    .get<PortfolioData>('assets/data/data.json')
+    .pipe(
+      // Log the failing URL + status so problems are visible in DevTools > Console
+      catchError(err => {
+        console.error('[DataService] Failed to load assets/data/data.json', err);
+        return throwError(() => err);
+      }),
+      shareReplay(1)
+    );
 
   /** Returns the full portfolio data object */
   getData(): Observable<PortfolioData> {
