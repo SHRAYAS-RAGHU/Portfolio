@@ -10,7 +10,7 @@
     "openTo": "Open to Senior / Staff Engineering roles",
     "resumeUrl": "/assets/Shrayas_Resume_26.pdf",
     "about": "Software Engineer with 4+ years at Citi, building and modernising Java/Spring Boot microservices for consumer and commercial Retail Cards acquisition platforms. I work at the intersection of distributed systems, performance engineering, and AI/ML research — shipping production systems that are resilient, observable, and intelligent. Outside of core engineering, I hold peer-reviewed publications in NLP applied to materials science and have built RL agents for real-world hardware constraints.",
-    "photo": "Portfolio/assets/images/profile.jpg",
+    "photo": "/assets/images/profile.jpg",
     "company": "Citi",
     "currentRole": "Software Engineer",
     "yearsOfExperience": "4+"
