@@ -1,6 +1,6 @@
 import { Component, inject, signal, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, PlatformLocation } from '@angular/common';
 import { DataService } from '../../services/data.service';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 import { PersonalInfo, Stat, SkillDomain, TimelineItem } from '../../models/portfolio.models';
@@ -97,7 +97,7 @@ import { PersonalInfo, Stat, SkillDomain, TimelineItem } from '../../models/port
 
           <div appScrollReveal [delay]="150">
             <div class="photo-card relative">
-              <!-- Real photo: path comes from data.json (personal.photo), relative so it works under /Portfolio/ -->
+              <!-- Real photo: path dynamically resolved with base href -->
               <img *ngIf="personal()?.photo && !photoFailed()"
                    [src]="personal()?.photo"
                    alt="Shrayas Raghunathan"
@@ -244,8 +244,6 @@ import { PersonalInfo, Stat, SkillDomain, TimelineItem } from '../../models/port
   styles: [`
     /* ── HERO ── */
     .hero-section {
-      /* Compensate: app.component adds padding-top:72px, but hero needs to fill full viewport height
-         including that space, so min-height accounts for it */
       min-height: calc(100vh - var(--navbar-height));
     }
 
@@ -283,7 +281,6 @@ import { PersonalInfo, Stat, SkillDomain, TimelineItem } from '../../models/port
       50%       { opacity: 0; }
     }
 
-    /* Scroll hint — visible by default, fades out on scroll */
     .scroll-hint {
       transition: opacity 0.4s ease, transform 0.4s ease;
       opacity: 1;
@@ -365,6 +362,7 @@ import { PersonalInfo, Stat, SkillDomain, TimelineItem } from '../../models/port
 export class LandingComponent implements OnInit, OnDestroy {
   private titleTimer?: ReturnType<typeof setInterval>;
   private dataService = inject(DataService);
+  private platformLocation = inject(PlatformLocation);
 
   personal       = signal<PersonalInfo | null>(null);
   stats          = signal<Stat[]>([]);
@@ -372,7 +370,7 @@ export class LandingComponent implements OnInit, OnDestroy {
   timelineTeaser = signal<TimelineItem[]>([]);
   currentTitle   = signal('Full Stack Engineer');
   hasScrolled    = signal(false);
-  photoFailed    = signal(false);  // true if profile.jpg is missing -> show placeholder  // controls scroll hint visibility
+  photoFailed    = signal(false);
 
   private titles = [
     'Full Stack Engineer', 'AI / ML Researcher',
@@ -382,6 +380,14 @@ export class LandingComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.dataService.getData().subscribe(data => {
+      // Dynamically fix the photo path using the active base href (e.g. "/Portfolio/")
+      if (data.personal && data.personal.photo) {
+        const baseHref = this.platformLocation.getBaseHrefFromDOM() || '/';
+        const cleanBase = baseHref.endsWith('/') ? baseHref : baseHref + '/';
+        const cleanPhoto = data.personal.photo.startsWith('/') ? data.personal.photo.slice(1) : data.personal.photo;
+        data.personal.photo = cleanBase + cleanPhoto;
+      }
+
       this.personal.set(data.personal);
       this.stats.set(data.stats);
       this.skills.set(data.skills);
@@ -395,11 +401,9 @@ export class LandingComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    // Stop the rotating-title timer when leaving the page (previously leaked forever)
     if (this.titleTimer) clearInterval(this.titleTimer);
   }
 
-  /** Hide scroll indicator once user scrolls at all */
   @HostListener('window:scroll')
   onScroll() {
     if (window.scrollY > 80) {
