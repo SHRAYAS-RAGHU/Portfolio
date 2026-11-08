@@ -9,17 +9,41 @@
 
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { PlatformLocation } from '@angular/common';
 import { Observable, shareReplay, map, catchError, throwError } from 'rxjs';
 import { PortfolioData, Experience, CommandResult } from '../models/portfolio.models';
 
 @Injectable({ providedIn: 'root' })
 export class DataService {
   private http = inject(HttpClient);
+  private platformLocation = inject(PlatformLocation);
 
   // Cached data stream — only one HTTP request is ever made
   private data$: Observable<PortfolioData> = this.http
     .get<PortfolioData>('assets/data/data.json')
     .pipe(
+      map(data => {
+        const baseHref = this.platformLocation.getBaseHrefFromDOM() || '/';
+        const cleanBase = baseHref.endsWith('/') ? baseHref : baseHref + '/';
+
+        // Helper to cleanly prefix asset paths without duplicating
+        const fixPath = (path?: string) => {
+          if (!path) return path;
+          if (path.startsWith('http://') || path.startsWith('https://')) return path;
+          if (path.startsWith(cleanBase)) return path;
+
+          const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+          return cleanBase + cleanPath;
+        };
+
+        // Fix personal info asset paths globally (photo, resume, etc.)
+        if (data.personal) {
+          data.personal.photo = fixPath(data.personal.photo)!;
+          data.personal.resumeUrl = fixPath(data.personal.resumeUrl)!;
+        }
+
+        return data;
+      }),
       // Log the failing URL + status so problems are visible in DevTools > Console
       catchError(err => {
         console.error('[DataService] Failed to load assets/data/data.json', err);
