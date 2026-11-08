@@ -1,0 +1,1175 @@
+{
+  "personal": {
+    "name": "Shrayas Raghunathan",
+    "title": "Software Engineer — Java · Spring Boot · Distributed Systems · AI/ML/RL",
+    "tagline": "Building resilient, high-performance systems at Citi — from distributed microservices to deep learning pipelines.",
+    "email": "krshrayas26@gmail.com",
+    "github": "https://github.com/SHRAYAS-RAGHU",
+    "linkedin": "https://linkedin.com/in/shrayasraghunathan",
+    "location": "Chennai, India",
+    "openTo": "Open to Senior / Staff Engineering roles",
+    "resumeUrl": "/assets/Shrayas_Resume_26.pdf",
+    "about": "Software Engineer with 4+ years at Citi, building and modernising Java/Spring Boot microservices for consumer and commercial Retail Cards acquisition platforms. I work at the intersection of distributed systems, performance engineering, and AI/ML research — shipping production systems that are resilient, observable, and intelligent. Outside of core engineering, I hold peer-reviewed publications in NLP applied to materials science and have built RL agents for real-world hardware constraints.",
+    "photo": "/assets/images/profile.jpg",
+    "company": "Citi",
+    "currentRole": "Software Engineer",
+    "yearsOfExperience": "4+"
+  },
+  "stats": [
+    {
+      "label": "Years at Citi",
+      "value": "4+",
+      "icon": "🏦"
+    },
+    {
+      "label": "Microservices Owned",
+      "value": "10+",
+      "icon": "⚙️"
+    },
+    {
+      "label": "Prod Incidents Resolved",
+      "value": "5+",
+      "icon": "🔥"
+    },
+    {
+      "label": "Research Citations",
+      "value": "4",
+      "icon": "🧠"
+    }
+  ],
+  "skills": [
+    {
+      "domain": "Backend Engineering",
+      "color": "#3b82f6",
+      "icon": "⚙️",
+      "items": [
+        "Java",
+        "Spring Boot",
+        "REST APIs",
+        "Microservices",
+        "Multithreading",
+        "Concurrent Processing",
+        "Circuit Breaker",
+        "TimeLimiter",
+        "Service Discovery",
+        "Eureka",
+        "Caching"
+      ]
+    },
+    {
+      "domain": "Architecture & Design",
+      "color": "#06b6d4",
+      "icon": "🏗️",
+      "items": [
+        "HLD",
+        "LLD",
+        "Design Patterns",
+        "SOLID",
+        "Distributed Systems",
+        "API Design",
+        "CQRS",
+        "Event-Driven Architecture",
+        "Kafka"
+      ]
+    },
+    {
+      "domain": "AI / ML / DL",
+      "color": "#8b5cf6",
+      "icon": "🧠",
+      "items": [
+        "PyTorch",
+        "Reinforcement Learning",
+        "Deep Learning",
+        "NLP",
+        "Generative AI",
+        "MLOps",
+        "SciBERT",
+        "CNN",
+        "U-Net",
+        "DDPG",
+        "TD3"
+      ]
+    },
+    {
+      "domain": "Cloud & DevOps",
+      "color": "#f59e0b",
+      "icon": "☁️",
+      "items": [
+        "AWS",
+        "OpenShift",
+        "Jenkins",
+        "Bitbucket",
+        "CI/CD",
+        "APIM",
+        "OpenShift ConfigMaps",
+        "Config Server"
+      ]
+    },
+    {
+      "domain": "Data & Performance",
+      "color": "#10b981",
+      "icon": "📊",
+      "items": [
+        "MongoDB",
+        "GemFire",
+        "JMeter",
+        "Load Testing",
+        "Stress Testing",
+        "Profiling",
+        "Splunk",
+        "Kibana",
+        "Production Debugging"
+      ]
+    },
+    {
+      "domain": "Security & Frontend",
+      "color": "#ef4444",
+      "icon": "🔐",
+      "items": [
+        "AES-256",
+        "TLS",
+        "RBAC",
+        "Authentication",
+        "Angular",
+        "CSS",
+        "Figma",
+        "Adobe Analytics",
+        "SonarQube"
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "year": "Jun 2026",
+      "title": "Certificate of Appreciation — Head of USPB Digital",
+      "description": "Recognised by the Head of USPB Digital for outstanding performance across Consumer Credit Servicing and Platform Modernization initiatives.",
+      "type": "achievement"
+    },
+    {
+      "year": "2025",
+      "title": "Architect — Commercial Acquisition Migration to AWS",
+      "description": "Architected major design migration across APIM, Platform Security Gateway and 4 microservices, replacing manual routing with Netflix Eureka; reduced API latency by ~1s and established plug-and-play architecture for AWS migration.",
+      "type": "achievement"
+    },
+    {
+      "year": "2024",
+      "title": "Led Java 17 Migration — 10+ Microservices",
+      "description": "Spearheaded Java 17 upgrade across 10+ microservices, resolving PowerMockito/static-mocking incompatibilities while maintaining 90%+ code coverage and introducing Circuit Breaker and TimeLimiter resiliency patterns.",
+      "type": "achievement"
+    },
+    {
+      "year": "2023",
+      "title": "Honorable Mention — Citi AI-OPS Hackathon",
+      "description": "Built a Splunk-based log-processing API to identify failed CRS applications and pre-populate retry data, integrated with a GPT vulnerability recommendations pipeline via Jenkins.",
+      "type": "achievement"
+    },
+    {
+      "year": "Jul 2022",
+      "title": "Joined Citi as Software Engineer",
+      "description": "Joined Citi's Retail Cards acquisition platform team in Chennai, working on Java/Spring Boot microservices for consumer and commercial card products.",
+      "type": "career"
+    },
+    {
+      "year": "2022",
+      "title": "Winner — Indo Data Week: Climate Data Hackathon",
+      "description": "Developed an ML/RL-based crop recommendation framework using multivariate climate and meteorological data. Published a Medium article on the approach.",
+      "type": "achievement"
+    },
+    {
+      "year": "Oct 2021 – Jun 2022",
+      "title": "R&D Intern — IIT Madras",
+      "description": "Developed a SciBERT-based NLP pipeline trained on 1.8M+ scientific abstracts for electrocatalyst discovery. Published in a peer-reviewed journal with 4 citations.",
+      "type": "career"
+    },
+    {
+      "year": "2022",
+      "title": "B.E. — Electronics & Instrumentation, MIT Anna University",
+      "description": "Graduated as Best Outgoing Student with CGPA 9.3. Chairman/Treasurer of MIT Robotics Association; led DEXBOT'22, a national-level symposium, securing ₹50K in corporate sponsorships.",
+      "type": "education"
+    }
+  ],
+  "experiences": [
+    {
+      "id": "exp_001",
+      "title": "Salesforce Marketing Cloud Migration — Kafka-Driven Email Architecture",
+      "summary": "Designed target architecture to sunset Cheetah-based email triggering and onboard Salesforce Marketing Cloud. Introduced Kafka-driven eventing alongside FusionDB; implemented an Async MDC Executor for tiny-URL generation, FusionDB payload construction and Kafka publishing, retaining FusionDB as source of truth during migration for consistency.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "Kafka",
+        "System Design",
+        "Microservices",
+        "Software Development",
+        "Architecture"
+      ],
+      "domain": [
+        "Backend",
+        "System Design"
+      ],
+      "type": "project",
+      "impact": "Zero data loss during live migration",
+      "year": 2026,
+      "featured": true
+    },
+    {
+      "id": "exp_002",
+      "title": "Commercial Acquisition Migration — Netflix Eureka Service Discovery",
+      "summary": "Architected and executed a major Commercial Acquisition design migration across APIM, Platform Security Gateway and 4 microservices. Replaced manual routing with Netflix Eureka service discovery, reducing API latency by ~1 second and establishing a plug-and-play architecture enabling subsequent AWS migration.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "System Design",
+        "Microservices",
+        "AWS",
+        "APIM",
+        "Architecture",
+        "Eureka"
+      ],
+      "domain": [
+        "Backend",
+        "System Design"
+      ],
+      "type": "project",
+      "impact": "~1s API latency reduction",
+      "year": 2025,
+      "featured": true
+    },
+    {
+      "id": "exp_003",
+      "title": "Singleton Configuration Cache — 30% Latency Reduction",
+      "summary": "Eliminated redundant service-to-service rule-configuration calls via a Singleton-based configuration cache with deep-copy protection. Reduced initial page-load latency by 30%, improved API responses by up to 42%, and eliminated 15–20 MB memory overhead per microservice.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "Performance",
+        "Caching",
+        "System Design",
+        "Software Development"
+      ],
+      "domain": [
+        "Backend"
+      ],
+      "type": "project",
+      "impact": "42% API response improvement, 15–20 MB memory saved",
+      "year": 2025,
+      "featured": true
+    },
+    {
+      "id": "exp_004",
+      "title": "Release Planner — 25K+ Entries, <20ms Response",
+      "summary": "Architected and developed a Release Planner application with 15+ APIs, optimising retrieval of 25K+ entries using parallel fetching, caching, debouncing and pagination. Reduced response time from ~2 minutes to under 20ms.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "System Design",
+        "Performance",
+        "Software Development",
+        "Architecture"
+      ],
+      "domain": [
+        "Backend",
+        "System Design"
+      ],
+      "type": "project",
+      "impact": "~2 mins → <20ms response time",
+      "year": 2025,
+      "featured": true
+    },
+    {
+      "id": "exp_005",
+      "title": "Unified Responsive UI — Macy's & Bloomingdale's",
+      "summary": "Designed a unified responsive UI for Macy's and Bloomingdale's consumer credit applications, replacing separate desktop/mobile implementations with a single template using CSS specificity overrides. Reduced future development effort by ~50% across 10+ pages.",
+      "tags": [
+        "Angular",
+        "CSS",
+        "Software Development",
+        "Frontend"
+      ],
+      "domain": [
+        "Frontend"
+      ],
+      "type": "project",
+      "impact": "~50% reduction in future dev effort",
+      "year": 2025,
+      "featured": false
+    },
+    {
+      "id": "exp_006",
+      "title": "MongoDB → GemFire DB Migration — 4 Microservices",
+      "summary": "Executed DB migration for 4 Commercial Acquisition microservices from MongoDB to GemFire for low-latency data access, restructuring persistence behind a decoupled database interface while maintaining DC Affinity and data consistency.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "MongoDB",
+        "GemFire",
+        "System Design",
+        "Microservices",
+        "Software Development"
+      ],
+      "domain": [
+        "Backend",
+        "System Design"
+      ],
+      "type": "project",
+      "impact": "Low-latency GemFire access with full consistency",
+      "year": 2024,
+      "featured": false
+    },
+    {
+      "id": "exp_007",
+      "title": "Java 17 Migration — 10+ Microservices",
+      "summary": "Led Java 17 migration across 10+ microservices, resolving PowerMockito/static-mocking incompatibilities while maintaining 90%+ code coverage. Introduced Circuit Breaker and TimeLimiter resiliency patterns and deployed 2 applications to production.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "Microservices",
+        "Software Development",
+        "Resiliency",
+        "Circuit Breaker"
+      ],
+      "domain": [
+        "Backend"
+      ],
+      "type": "project",
+      "impact": "90%+ coverage maintained, 2 apps deployed to prod",
+      "year": 2024,
+      "featured": false
+    },
+    {
+      "id": "exp_008",
+      "title": "PII Encryption Service & Credit Unlock — First-in-Industry",
+      "summary": "Designed and developed secure PII/encryption services between Citi and credit-bureau systems. Contributed architecture for a first-in-industry Credit Unlock capability using iframe-loaded bureau authentication and KIQ validation to temporarily unlock accounts and allow eligible customers to resume credit approval.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "Security",
+        "AES-256",
+        "Architecture",
+        "Software Development"
+      ],
+      "domain": [
+        "Backend",
+        "Security"
+      ],
+      "type": "project",
+      "impact": "First-in-industry Credit Unlock capability",
+      "year": 2024,
+      "featured": true
+    },
+    {
+      "id": "exp_009",
+      "title": "Virtual Performance Engineering — Bureau Unlock in 48 Hours",
+      "summary": "Led VPE across 6 sprints, executing load, stress and profiling tests to secure performance certification. Automated encryption/decryption test flows and delivered Bureau Unlock performance validation within 48 hours using service mocks.",
+      "tags": [
+        "Java",
+        "JMeter",
+        "Performance",
+        "Load Testing",
+        "Stress Testing",
+        "Profiling",
+        "Software Development"
+      ],
+      "domain": [
+        "Backend"
+      ],
+      "type": "project",
+      "impact": "Full perf certification delivered in 48 hours",
+      "year": 2024,
+      "featured": false
+    },
+    {
+      "id": "exp_010",
+      "title": "OfferChoice Security — RBAC & Role Elevation",
+      "summary": "Strengthened OfferChoice security through response-code-driven role elevation, replacing hardcoded CN/tenant authorisation with role-based access controls and removing unused TLS certificates.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "Security",
+        "RBAC",
+        "TLS",
+        "Software Development"
+      ],
+      "domain": [
+        "Backend",
+        "Security"
+      ],
+      "type": "project",
+      "impact": "Eliminated hardcoded auth, enforced RBAC",
+      "year": 2024,
+      "featured": false
+    },
+    {
+      "id": "exp_011",
+      "title": "CitiPay DLOC & MIL — 4 Spring Boot APIs",
+      "summary": "Designed and developed 4 Spring Boot REST APIs powering CitiPay's Digital Line of Credit (DLOC) and Merchant Installment Loan (MIL) products, supporting ~2 TPS average / 3 TPS peak per API. Executed performance, component-load, profiling and breakpoint testing for production readiness.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "REST APIs",
+        "Performance",
+        "Software Development",
+        "Project Delivery"
+      ],
+      "domain": [
+        "Backend"
+      ],
+      "type": "project",
+      "impact": "~2–3 TPS per API, production certified",
+      "year": 2023,
+      "featured": false
+    },
+    {
+      "id": "exp_012",
+      "title": "6 CitiPay/MIL Customer Journeys in 30 Days",
+      "summary": "Designed and delivered the backend for 6 prequalified CitiPay/MIL customer journeys within 30 days, owning end-to-end implementation under an accelerated delivery timeline.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "Project Delivery",
+        "Software Development"
+      ],
+      "domain": [
+        "Backend"
+      ],
+      "type": "project",
+      "impact": "6 journeys delivered end-to-end in 30 days",
+      "year": 2023,
+      "featured": false
+    },
+    {
+      "id": "exp_013",
+      "title": "ML/DevSecOps Vulnerability Remediation Pipeline",
+      "summary": "Architected an ML/DevSecOps vulnerability-remediation pipeline integrating GPT vulnerability recommendations with Jenkins through a reusable pipeline plugin. Built a Splunk-based log-processing API for the AI-OPS Hackathon to identify failed CRS applications and pre-populate retry data.",
+      "tags": [
+        "Python",
+        "Machine Learning",
+        "AI",
+        "Jenkins",
+        "Splunk",
+        "DevOps",
+        "Generative AI"
+      ],
+      "domain": [
+        "AI",
+        "DevOps"
+      ],
+      "type": "project",
+      "impact": "Honorable Mention — Citi AI-OPS Hackathon 2023",
+      "year": 2023,
+      "featured": true
+    },
+    {
+      "id": "exp_014",
+      "title": "Vulnerability Intelligence Dashboard — 6 min → <750ms",
+      "summary": "Architected a unified vulnerability intelligence dashboard aggregating data from Snyk, Blackduck and Checkmarx. Implemented asynchronous service orchestration and worker-pool processing across 3 vulnerability streams for hundreds of paginated issue-detail calls, reducing data-fetch time from ~6 minutes to <750ms. Presented POC to senior leadership.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "System Design",
+        "Performance",
+        "Async",
+        "Software Development",
+        "Architecture"
+      ],
+      "domain": [
+        "Backend",
+        "System Design"
+      ],
+      "type": "project",
+      "impact": "6 min → <750ms fetch time",
+      "year": 2022,
+      "featured": true
+    },
+    {
+      "id": "exp_015",
+      "title": "AES-256 Bearer Token Lifecycle Management",
+      "summary": "Implemented automated bearer-token lifecycle management with scheduled renewal at the 3-month expiry boundary. Secured credentials using AES-256 encryption, decrypting tokens only during outbound authentication.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "Security",
+        "AES-256",
+        "Software Development"
+      ],
+      "domain": [
+        "Backend",
+        "Security"
+      ],
+      "type": "project",
+      "impact": "Zero manual token rotation, fully automated",
+      "year": 2022,
+      "featured": false
+    },
+    {
+      "id": "exp_016",
+      "title": "SciBERT NLP Pipeline — IIT Madras R&D",
+      "summary": "Developed a SciBERT-based transformer NLP pipeline trained on 1.8M+ scientific abstracts from Elsevier and Springer for electrocatalyst discovery and activity prediction. Published in a peer-reviewed journal with 4 citations to date.",
+      "tags": [
+        "Python",
+        "Deep Learning",
+        "NLP",
+        "PyTorch",
+        "AI",
+        "Machine Learning",
+        "Research"
+      ],
+      "domain": [
+        "AI"
+      ],
+      "type": "research",
+      "impact": "Published — 4 citations",
+      "year": 2022,
+      "featured": true
+    },
+    {
+      "id": "exp_017",
+      "title": "RL-Based DVFS — Raspberry Pi 4B",
+      "summary": "Designed a novel Reinforcement Learning-based Dynamic Voltage & Frequency Scaling (DVFS) framework for performance-aware power and thermal management on Raspberry Pi 4B, extending DVFS beyond conventional scheduler-level optimisation.",
+      "tags": [
+        "Python",
+        "Reinforcement Learning",
+        "Deep Learning",
+        "PyTorch",
+        "AI",
+        "Embedded Systems",
+        "Research"
+      ],
+      "domain": [
+        "AI"
+      ],
+      "type": "research",
+      "impact": "Extended DVFS beyond OS scheduler on real hardware",
+      "year": 2022,
+      "featured": true
+    },
+    {
+      "id": "exp_018",
+      "title": "Robust RL — LunarLander (DDPG & TD3)",
+      "summary": "Modified OpenAI Gym LunarLander with variable landing positions and Gaussian disturbances. Trained and evaluated DDPG and TD3 agents for robust continuous-control policy learning under distribution shift.",
+      "tags": [
+        "Python",
+        "Reinforcement Learning",
+        "Deep Learning",
+        "PyTorch",
+        "AI",
+        "Research"
+      ],
+      "domain": [
+        "AI"
+      ],
+      "type": "research",
+      "impact": "Robust policies under Gaussian disturbances",
+      "year": 2022,
+      "featured": false
+    },
+    {
+      "id": "exp_019",
+      "title": "Cardiac MRI Segmentation — 87.55% Avg Dice",
+      "summary": "Developed a CNN/U-Net model for semantic segmentation of cardiac structures using the ACDC dataset. Achieved 87.55% average Dice score: 94.92% LV, 87.10% RV, 80.63% myocardium.",
+      "tags": [
+        "Python",
+        "Deep Learning",
+        "PyTorch",
+        "Computer Vision",
+        "CNN",
+        "AI",
+        "Research"
+      ],
+      "domain": [
+        "AI"
+      ],
+      "type": "research",
+      "impact": "87.55% avg Dice — 94.92% LV, 87.10% RV",
+      "year": 2022,
+      "featured": false
+    },
+    {
+      "id": "exp_020",
+      "title": "RL/ML Crop Recommendation — Hackathon Winner",
+      "summary": "Developed an ML/RL-based crop recommendation framework using multivariate climate and meteorological data. Winner of Indo Data Week: Climate Data Hackathon 2022.",
+      "tags": [
+        "Python",
+        "Reinforcement Learning",
+        "Machine Learning",
+        "AI",
+        "Research"
+      ],
+      "domain": [
+        "AI"
+      ],
+      "type": "research",
+      "impact": "Winner — Indo Data Week Hackathon 2022",
+      "year": 2022,
+      "featured": false
+    },
+    {
+      "id": "exp_021",
+      "title": "Production Incident — 100K Erroneous Requests Post-Apigee Migration",
+      "summary": "Diagnosed 100K+ erroneous requests alarming in a single day following an Apigee migration. Correlated Splunk IP-level traffic and API timelines, identified browser-tab reloads and malformed bot POST traffic as root causes, deployed an overnight fix increasing 2xx success rate to 99.82%.",
+      "tags": [
+        "Java",
+        "Splunk",
+        "Production Incident Resolution",
+        "Debugging",
+        "APIM"
+      ],
+      "domain": [
+        "Backend",
+        "DevOps"
+      ],
+      "type": "incident",
+      "impact": "99.82% 2xx success rate restored overnight",
+      "year": 2024,
+      "featured": true
+    },
+    {
+      "id": "exp_022",
+      "title": "Production Incident — iOS Autofill Validation Failure",
+      "summary": "Identified the root cause of an edge-case production validation failure affecting iOS autofill flows. Traced the device-specific input path and corrected the validation handling.",
+      "tags": [
+        "Java",
+        "Debugging",
+        "Production Incident Resolution",
+        "Software Development"
+      ],
+      "domain": [
+        "Backend"
+      ],
+      "type": "incident",
+      "impact": "iOS autofill unblocked for all affected users",
+      "year": 2024,
+      "featured": false
+    },
+    {
+      "id": "exp_023",
+      "title": "Production Incident — Race Condition via Shared Static State",
+      "summary": "Resolved a production race condition caused by shared static-state mutation. Replaced unsafe shared-state access with deep-copy isolation to prevent concurrent request contamination and eliminate restart-based recovery.",
+      "tags": [
+        "Java",
+        "Debugging",
+        "Production Incident Resolution",
+        "Concurrency",
+        "Multithreading"
+      ],
+      "domain": [
+        "Backend"
+      ],
+      "type": "incident",
+      "impact": "Eliminated restart-based recovery, fixed at root",
+      "year": 2024,
+      "featured": true
+    },
+    {
+      "id": "exp_024",
+      "title": "Production Incident — Cross-DC Traffic Failure Unblocked in 1 Week",
+      "summary": "Unblocked a critical production deployment by tracing cross-DC traffic failures across GRN, DMZ, APIM and Akamai. Coordinated with the Akamai team and delivered the deployment within 1 week vs. a proposed 1-month delay.",
+      "tags": [
+        "Java",
+        "Production Incident Resolution",
+        "Debugging",
+        "APIM",
+        "System Design"
+      ],
+      "domain": [
+        "Backend",
+        "DevOps"
+      ],
+      "type": "incident",
+      "impact": "1 week delivery vs. proposed 1-month delay",
+      "year": 2024,
+      "featured": true
+    },
+    {
+      "id": "exp_025",
+      "title": "Production Incident — POS Email O(N) → O(1) Optimisation",
+      "summary": "Optimised POS approval-email processing from O(N) to O(1) by replacing nested-JSON iteration with a direct lookup structure across 100+ credit-unit configurations.",
+      "tags": [
+        "Java",
+        "Production Incident Resolution",
+        "Debugging",
+        "Performance",
+        "Software Development"
+      ],
+      "domain": [
+        "Backend"
+      ],
+      "type": "incident",
+      "impact": "O(N) → O(1) across 100+ credit units",
+      "year": 2024,
+      "featured": false
+    },
+    {
+      "id": "exp_026",
+      "title": "Production Defect — Paperless Enrollment SMS De-enrolment Bug",
+      "summary": "Resolved a production defect in paperless enrollment where enabling email unintentionally de-enrolled SMS regardless of prior customer preference. Corrected the preference-update logic to preserve existing channel selections.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "Debugging",
+        "Production Incident Resolution",
+        "Software Development"
+      ],
+      "domain": [
+        "Backend"
+      ],
+      "type": "incident",
+      "impact": "Customer preference integrity restored",
+      "year": 2026,
+      "featured": false
+    },
+    {
+      "id": "exp_027",
+      "title": "ConfigMap → Config Server Migration — 4 Microservices",
+      "summary": "Centralised configuration for 4 microservices by migrating OpenShift ConfigMaps to a Bitbucket-backed Config Server, eliminating duplicated platform configurations maintained at app team level.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "DevOps",
+        "OpenShift",
+        "Microservices",
+        "Software Development"
+      ],
+      "domain": [
+        "Backend",
+        "DevOps"
+      ],
+      "type": "project",
+      "impact": "Eliminated duplicated config across 4 services",
+      "year": 2024,
+      "featured": false
+    },
+    {
+      "id": "exp_028",
+      "title": "Precision Stepper Powder Dispensing — Patented Embedded System",
+      "summary": "Sole software developer in a 3-member team. Developed embedded control software for stepper-driven piston actuation, mapping motor rotation to piston position and powder volume with dispensing precision of up to 0.001g.",
+      "tags": [
+        "Embedded Systems",
+        "Python",
+        "Research",
+        "Software Development"
+      ],
+      "domain": [
+        "Research"
+      ],
+      "type": "research",
+      "impact": "0.001g dispensing precision — patented",
+      "year": 2022,
+      "featured": false
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj_001",
+      "title": "Vulnerability Intelligence Dashboard",
+      "problem": "Security teams at Citi had to manually query three separate vulnerability scanners — Snyk, Blackduck, and Checkmarx — each with paginated APIs returning hundreds of pages of results. The full fetch took ~6 minutes, making real-time security visibility impossible.",
+      "approach": "Architected a unified dashboard with asynchronous service orchestration and a worker-pool pattern. Three vulnerability streams ran in parallel, each processing paginated issue-detail calls concurrently. Results were aggregated into a single normalised view.",
+      "outcome": "Data-fetch time dropped from ~6 minutes to under 750ms. Presented the POC to senior leadership, resulting in multiple team onboarding requests.",
+      "stack": [
+        "Java",
+        "Spring Boot",
+        "Async",
+        "Worker Pools",
+        "REST APIs"
+      ],
+      "year": 2022,
+      "github": null,
+      "demo": null,
+      "featured": true
+    },
+    {
+      "id": "proj_002",
+      "title": "Release Planner — 25K+ Entry Retrieval",
+      "problem": "Release planning for 25K+ entries was a slow, manual process with response times around 2 minutes — making iterative planning impractical.",
+      "approach": "Built 15+ APIs with parallel fetching, in-memory caching, debouncing to reduce redundant calls, and pagination to manage payload size. Designed the data model for efficient lookup rather than full scans.",
+      "outcome": "Response time reduced from ~2 minutes to under 20ms — a 6000x improvement. The tool became the go-to release planning interface for the team.",
+      "stack": [
+        "Java",
+        "Spring Boot",
+        "Caching",
+        "Parallel Processing",
+        "REST APIs"
+      ],
+      "year": 2025,
+      "github": null,
+      "demo": null,
+      "featured": true
+    },
+    {
+      "id": "proj_003",
+      "title": "Commercial Acquisition — Eureka Service Discovery Migration",
+      "problem": "Manual routing configuration across APIM, Platform Security Gateway and 4 microservices caused high API latency (~1s overhead) and made adding new services a high-effort, error-prone process.",
+      "approach": "Architected a migration to Netflix Eureka service discovery, eliminating manual routing tables. Redesigned the APIM and PSG integration layer to use dynamic discovery, establishing a plug-and-play pattern for future services.",
+      "outcome": "~1 second API latency reduction. New services can be onboarded without routing changes — directly enabled the subsequent AWS migration.",
+      "stack": [
+        "Java",
+        "Spring Boot",
+        "Netflix Eureka",
+        "APIM",
+        "Microservices",
+        "AWS"
+      ],
+      "year": 2025,
+      "github": null,
+      "demo": null,
+      "featured": true
+    },
+    {
+      "id": "proj_004",
+      "title": "Credit Unlock — First-in-Industry Capability",
+      "problem": "Customers with credit-frozen bureau accounts had no path to resume credit approval — a hard blocker with no industry precedent for a self-service resolution flow.",
+      "approach": "Designed and developed PII/encryption services between Citi and bureau systems. Architected a Credit Unlock flow using iframe-loaded bureau authentication and KIQ (Knowledge-based Identity Questions) validation to temporarily unlock accounts in a secure, auditable way.",
+      "outcome": "First-in-industry Credit Unlock capability, allowing eligible customers to unblock and resume credit approval without manual intervention.",
+      "stack": [
+        "Java",
+        "Spring Boot",
+        "AES-256",
+        "RBAC",
+        "REST APIs",
+        "Security"
+      ],
+      "year": 2024,
+      "github": null,
+      "demo": null,
+      "featured": true
+    },
+    {
+      "id": "proj_005",
+      "title": "SciBERT NLP Pipeline — Electrocatalyst Discovery",
+      "problem": "Manual literature review of scientific papers for electrocatalyst discovery was slow and unscalable. Researchers needed automated extraction of material properties and activity predictions from abstracts.",
+      "approach": "Fine-tuned SciBERT (domain-adapted BERT for scientific text) on 1.8M+ abstracts from Elsevier and Springer. Applied representation learning to encode material descriptors and predict catalytic activity.",
+      "outcome": "Published in a peer-reviewed journal. 4 citations to date. The pipeline demonstrated that NLP could surface material candidates from literature at a scale manual review cannot match.",
+      "stack": [
+        "Python",
+        "PyTorch",
+        "SciBERT",
+        "Transformers",
+        "NLP"
+      ],
+      "year": 2022,
+      "github": null,
+      "demo": null,
+      "featured": true
+    },
+    {
+      "id": "proj_006",
+      "title": "RL-Based DVFS on Raspberry Pi 4B",
+      "problem": "Conventional DVFS operates at the OS scheduler level, reacting to load but unable to anticipate thermal and power constraints or optimise beyond pre-defined frequency steps.",
+      "approach": "Designed a custom RL environment wrapping the Raspberry Pi's DVFS interface. Trained an RL agent to learn a control policy that balances performance, power draw, and thermal state — operating at a layer below the kernel scheduler.",
+      "outcome": "Demonstrated that RL can extend DVFS optimisation beyond scheduler-level heuristics on real embedded hardware, with measurable thermal and power benefits.",
+      "stack": [
+        "Python",
+        "PyTorch",
+        "Reinforcement Learning",
+        "Raspberry Pi",
+        "Embedded Systems"
+      ],
+      "year": 2022,
+      "github": null,
+      "demo": null,
+      "featured": true
+    }
+  ],
+  "systemDesigns": [
+    {
+      "id": "sd_001",
+      "title": "Salesforce Marketing Cloud Migration — Kafka Event Architecture",
+      "context": "Live migration from Cheetah-based email triggering to Salesforce Marketing Cloud for Consumer Credit Servicing. Required zero data loss during cutover, consistency across two DBs (FusionDB as source of truth), and no downtime.",
+      "decisions": [
+        {
+          "question": "Why Kafka over direct API calls for email triggering?",
+          "answer": "Kafka provides durability and replay capability. Direct API calls to SFMC would create tight coupling and risk event loss on downstream failures. Kafka decouples producers from SFMC, enables retry without re-triggering upstream, and gives an auditable event log across the migration window."
+        },
+        {
+          "question": "Why retain FusionDB as source of truth during migration?",
+          "answer": "Dual-write to both FusionDB and SFMC during migration creates a consistency risk. By keeping FusionDB as the authoritative source and only using SFMC as the delivery channel, we eliminated the risk of split-brain state and could roll back SFMC integration without data loss."
+        },
+        {
+          "question": "Why an Async MDC Executor for tiny-URL generation and payload construction?",
+          "answer": "Tiny-URL generation and FusionDB payload construction are IO-bound and independent. An Async MDC Executor parallelises these operations while preserving MDC context for distributed tracing across async boundaries — critical for Splunk correlation in production."
+        }
+      ],
+      "tags": [
+        "Kafka",
+        "System Design",
+        "Microservices",
+        "Event-Driven Architecture",
+        "Java"
+      ]
+    },
+    {
+      "id": "sd_002",
+      "title": "Commercial Acquisition — Netflix Eureka + APIM Migration",
+      "context": "4 microservices behind APIM and Platform Security Gateway using manual routing tables. Goal: reduce latency, eliminate manual routing config, and enable AWS migration. Constraints: zero downtime, live traffic throughout.",
+      "decisions": [
+        {
+          "question": "Why Netflix Eureka over a static service registry or AWS Cloud Map?",
+          "answer": "Eureka was already part of the Spring Cloud ecosystem in use, minimising library overhead. It provides client-side load balancing via Ribbon (integrated with Spring), self-registration, and health-check driven deregistration — all without requiring AWS-specific tooling at a stage when AWS migration hadn't started."
+        },
+        {
+          "question": "Why redesign APIM routing instead of just adding Eureka alongside existing config?",
+          "answer": "Layering Eureka on top of existing manual routing would create dual maintenance — any new service would need both a routing table update and Eureka config. A clean break to dynamic discovery meant future onboarding required only Eureka registration, enabling true plug-and-play."
+        }
+      ],
+      "tags": [
+        "System Design",
+        "Microservices",
+        "Netflix Eureka",
+        "APIM",
+        "AWS",
+        "Java"
+      ]
+    },
+    {
+      "id": "sd_003",
+      "title": "Vulnerability Intelligence Dashboard — Async Aggregation",
+      "context": "Aggregate vulnerability data from Snyk, Blackduck and Checkmarx — each with paginated REST APIs returning hundreds of pages. Target: sub-second fetch for a unified dashboard. No dedicated message queue budget.",
+      "decisions": [
+        {
+          "question": "Why worker-pool processing over a simple parallel stream?",
+          "answer": "Each vulnerability source had different rate limits and page depths. A fixed parallel stream would saturate slower sources or under-utilise faster ones. Worker pools with per-source thread budgets allowed independent tuning of concurrency per source, preventing one slow scanner from blocking the others."
+        },
+        {
+          "question": "Why not cache all results and serve from cache?",
+          "answer": "Vulnerability data changes frequently — a stale cache would give a false sense of security. Instead, we optimised the fetch pipeline itself to be fast enough that caching wasn't needed for UX, while still being accurate at query time."
+        }
+      ],
+      "tags": [
+        "System Design",
+        "Async",
+        "Java",
+        "Performance",
+        "Worker Pools"
+      ]
+    }
+  ],
+  "research": [
+    {
+      "id": "res_001",
+      "title": "SciBERT for Electrocatalyst Discovery — IIT Madras",
+      "summary": "Fine-tuned SciBERT on 1.8M+ scientific abstracts from Elsevier and Springer. Applied representation learning and NLP to predict electrocatalyst activity from literature. Published in a peer-reviewed journal — 4 citations.",
+      "tags": [
+        "NLP",
+        "Deep Learning",
+        "PyTorch",
+        "SciBERT",
+        "Transformers",
+        "Research"
+      ],
+      "year": 2022,
+      "link": null,
+      "type": "paper"
+    },
+    {
+      "id": "res_002",
+      "title": "RL-Based Dynamic Voltage & Frequency Scaling on Raspberry Pi 4B",
+      "summary": "Designed a novel RL-based DVFS framework for performance-aware power and thermal management on Raspberry Pi 4B. Extended DVFS beyond conventional scheduler-level optimisation using a custom RL environment wrapping the hardware interface.",
+      "tags": [
+        "Reinforcement Learning",
+        "Deep Learning",
+        "PyTorch",
+        "Embedded Systems",
+        "AI"
+      ],
+      "year": 2022,
+      "link": null,
+      "type": "experiment"
+    },
+    {
+      "id": "res_003",
+      "title": "Robust RL Agents for LunarLander — DDPG & TD3",
+      "summary": "Modified OpenAI Gym LunarLander with variable landing positions and Gaussian disturbances. Trained DDPG and TD3 agents and compared robustness under distribution shift. Evaluated continuous-control policy generalisation.",
+      "tags": [
+        "Reinforcement Learning",
+        "Deep Learning",
+        "PyTorch",
+        "DDPG",
+        "TD3",
+        "AI"
+      ],
+      "year": 2022,
+      "link": null,
+      "type": "experiment"
+    },
+    {
+      "id": "res_004",
+      "title": "Cardiac MRI Semantic Segmentation — CNN/U-Net",
+      "summary": "Developed a CNN/U-Net model for semantic segmentation of cardiac structures using the ACDC dataset. Achieved 87.55% average Dice: 94.92% LV, 87.10% RV, 80.63% myocardium. Evaluated via confusion-matrix and segmentation metrics.",
+      "tags": [
+        "Deep Learning",
+        "Computer Vision",
+        "CNN",
+        "PyTorch",
+        "U-Net",
+        "AI"
+      ],
+      "year": 2022,
+      "link": null,
+      "type": "experiment"
+    },
+    {
+      "id": "res_005",
+      "title": "ML/RL Crop Recommendation — Climate Data Hackathon Winner",
+      "summary": "Developed an ML/RL-based crop recommendation framework using multivariate climate and meteorological data. Winner of Indo Data Week: Climate Data Hackathon 2022. Published a Medium article on the approach.",
+      "tags": [
+        "Reinforcement Learning",
+        "Machine Learning",
+        "AI",
+        "Python"
+      ],
+      "year": 2022,
+      "link": null,
+      "type": "experiment"
+    },
+    {
+      "id": "res_006",
+      "title": "Precision Stepper Powder Dispensing — Patented Embedded System",
+      "summary": "Sole software developer in a 3-member team. Developed embedded control software for stepper-driven piston actuation. Achieved dispensing precision of 0.001g. Additionally developed a PID-based vibration-calibrated variant using MPU-6050 3-axis feedback.",
+      "tags": [
+        "Embedded Systems",
+        "Python",
+        "PID Control",
+        "Research"
+      ],
+      "year": 2022,
+      "link": null,
+      "type": "experiment"
+    }
+  ],
+  "productionIncidents": [
+    {
+      "id": "inc_001",
+      "title": "100K Erroneous Requests — Apigee Migration",
+      "diagnosis": "Correlated Splunk IP-level traffic logs and API timelines across the migration window. Identified two distinct root causes: browser-tab reload storms generating duplicate requests, and malformed bot POST traffic that bypassed validation post-migration.",
+      "fix": "Deployed an overnight fix targeting both traffic patterns. Added request deduplication logic and tightened bot traffic filtering at the gateway layer.",
+      "impact": "2xx success rate restored to 99.82% by the next morning. Zero escalation to leadership.",
+      "tools": [
+        "Java",
+        "Splunk",
+        "APIM"
+      ],
+      "year": 2024,
+      "severity": "P1"
+    },
+    {
+      "id": "inc_002",
+      "title": "Race Condition — Shared Static State Mutation",
+      "diagnosis": "Traced intermittent request contamination to shared static state being mutated across concurrent threads. The unsafe access pattern caused one request's data to bleed into another's, with restarts as the only recovery mechanism.",
+      "fix": "Replaced shared-state access with deep-copy isolation at the point of object creation, ensuring each request thread operated on its own copy.",
+      "impact": "Eliminated restart-based recovery. Zero recurrence after fix deployment.",
+      "tools": [
+        "Java",
+        "Multithreading",
+        "Debugging"
+      ],
+      "year": 2024,
+      "severity": "P1"
+    },
+    {
+      "id": "inc_003",
+      "title": "Cross-DC Traffic Failure — 1 Week vs. 1 Month",
+      "diagnosis": "Traced deployment blocker to cross-DC traffic failures spanning GRN, DMZ, APIM and Akamai layers. Each layer appeared healthy in isolation — the failure was at the intersection of routing rules across all four.",
+      "fix": "Coordinated with the Akamai team to identify and update conflicting routing rules. Validated end-to-end traffic flow across all DC hops before deployment.",
+      "impact": "Unblocked and delivered production deployment within 1 week against a proposed 1-month delay.",
+      "tools": [
+        "APIM",
+        "Akamai",
+        "Debugging",
+        "Splunk"
+      ],
+      "year": 2024,
+      "severity": "P1"
+    },
+    {
+      "id": "inc_004",
+      "title": "iOS Autofill Validation Failure",
+      "diagnosis": "Traced an edge-case validation failure to iOS-specific autofill behaviour that populated form fields in a different order and format than desktop browsers, triggering a validation path the desktop code never hit.",
+      "fix": "Corrected the validation handler to normalise input regardless of fill source, and added iOS-specific integration test coverage.",
+      "impact": "iOS autofill flows unblocked for all affected customers.",
+      "tools": [
+        "Java",
+        "Debugging"
+      ],
+      "year": 2024,
+      "severity": "P2"
+    },
+    {
+      "id": "inc_005",
+      "title": "POS Email O(N) → O(1) Performance Fix",
+      "diagnosis": "POS approval-email processing was iterating nested JSON across 100+ credit-unit configurations to find the right template — an O(N) scan on every email triggered.",
+      "fix": "Replaced nested-JSON iteration with a pre-built direct lookup structure (map keyed by credit-unit ID), reducing per-email processing to O(1).",
+      "impact": "Email processing time dropped proportionally to configuration count. No further performance degradation as credit-unit count grows.",
+      "tools": [
+        "Java",
+        "Performance",
+        "Debugging"
+      ],
+      "year": 2024,
+      "severity": "P2"
+    },
+    {
+      "id": "inc_006",
+      "title": "Paperless Enrollment — SMS De-enrolment Bug",
+      "diagnosis": "A preference-update mutation in the paperless enrollment flow was overwriting the entire channel preference object rather than merging it. Enabling email reset all other channels to their default (off) state.",
+      "fix": "Corrected the update logic to perform a field-level merge, preserving existing channel preferences when updating a single channel.",
+      "impact": "Customer channel preferences preserved correctly. No customer data loss.",
+      "tools": [
+        "Java",
+        "Spring Boot",
+        "Debugging"
+      ],
+      "year": 2026,
+      "severity": "P2"
+    }
+  ],
+  "allTags": [
+    "Software Development",
+    "Java",
+    "Spring Boot",
+    "Python",
+    "PyTorch",
+    "Deep Learning",
+    "Machine Learning",
+    "Reinforcement Learning",
+    "NLP",
+    "AI",
+    "System Design",
+    "Microservices",
+    "Kafka",
+    "GemFire",
+    "MongoDB",
+    "Distributed Systems",
+    "DevOps",
+    "OpenShift",
+    "AWS",
+    "CI/CD",
+    "Jenkins",
+    "Splunk",
+    "Debugging",
+    "Production Incident Resolution",
+    "Performance",
+    "Load Testing",
+    "Profiling",
+    "Security",
+    "AES-256",
+    "TLS",
+    "RBAC",
+    "Authentication",
+    "Angular",
+    "Frontend",
+    "CSS",
+    "Architecture",
+    "Eureka",
+    "APIM",
+    "Circuit Breaker",
+    "Async",
+    "Concurrency",
+    "Multithreading",
+    "Caching",
+    "Embedded Systems",
+    "Research",
+    "Computer Vision",
+    "CNN",
+    "Project Delivery",
+    "Generative AI"
+  ]
+}
