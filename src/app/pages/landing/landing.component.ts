@@ -97,10 +97,18 @@ import { PersonalInfo, Stat, SkillDomain, TimelineItem } from '../../models/port
 
           <div appScrollReveal [delay]="150">
             <div class="photo-card relative">
-              <div class="photo-placeholder">
+              <!-- Real photo: path comes from data.json (personal.photo), relative so it works under /Portfolio/ -->
+              <img *ngIf="personal()?.photo && !photoFailed()"
+                   [src]="personal()?.photo"
+                   alt="Shrayas Raghunathan"
+                   class="photo-img"
+                   (error)="photoFailed.set(true)">
+
+              <!-- Fallback placeholder: shown if no photo is set or the file is missing -->
+              <div *ngIf="!personal()?.photo || photoFailed()" class="photo-placeholder">
                 <div class="text-8xl mb-4 float-emoji">&#128104;&#8205;&#128187;</div>
                 <p class="text-slate-500 text-sm font-mono text-center">
-                  // REPLACE: Add profile.jpg to<br>src/assets/images/
+                  // Add profile.jpg to<br>src/assets/images/
                 </p>
               </div>
               <div class="photo-decoration-1"></div>
@@ -294,6 +302,14 @@ import { PersonalInfo, Stat, SkillDomain, TimelineItem } from '../../models/port
 
     /* ── ABOUT ── */
     .photo-card { aspect-ratio: 1; max-width: 400px; margin: 0 auto; }
+    .photo-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 24px;
+      border: 1px solid rgba(59,130,246,0.35);
+      box-shadow: 0 0 40px rgba(59,130,246,0.2);
+      display: block;
+    }
     .photo-placeholder {
       width:100%; height:100%;
       background: rgba(10,22,40,0.8);
@@ -355,7 +371,8 @@ export class LandingComponent implements OnInit, OnDestroy {
   skills         = signal<SkillDomain[]>([]);
   timelineTeaser = signal<TimelineItem[]>([]);
   currentTitle   = signal('Full Stack Engineer');
-  hasScrolled    = signal(false);  // controls scroll hint visibility
+  hasScrolled    = signal(false);
+  photoFailed    = signal(false);  // true if profile.jpg is missing -> show placeholder  // controls scroll hint visibility
 
   private titles = [
     'Full Stack Engineer', 'AI / ML Researcher',
