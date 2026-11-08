@@ -94,7 +94,6 @@ import { DataService } from '../../services/data.service';
             <!-- Download Resume -->
             <a
               [href]="personal()?.resumeUrl || 'assets/resume.pdf'"
-              download="Shrayas_Raghunathan_Resume.pdf"
               class="!hidden sm:!inline-flex btn-primary text-sm py-2 px-4">
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
