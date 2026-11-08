@@ -36,7 +36,7 @@
   --text-muted:      #475569;
 
   /* Spacing rhythm */
-  --section-gap:     120px;
+  --section-gap:     clamp(56px, 9vw, 120px);
 
   /* Navbar height (used for scroll offset calculations) */
   --navbar-height:   72px;
@@ -99,6 +99,8 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
+/* Custom components live in Tailwind's components layer so utilities (hidden, sm:flex, p-4 ...) always win */
+@layer components {
 /* ─── 6. GLASS MORPHISM CARD ─────────────────────────────────────────────── */
 /* Reusable glass-card class for floating panel effects */
 .glass-card {
@@ -134,7 +136,7 @@ h1, h2, h3, h4, h5, h6 {
 .section-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 clamp(16px, 4vw, 24px);
 }
 
 .section-padding {
@@ -245,6 +247,8 @@ h1, h2, h3, h4, h5, h6 {
     border-color: rgba(59, 130, 246, 0.5);
     color: #fff;
   }
+}
+
 }
 
 /* ─── 12. GLOWING DOT ────────────────────────────────────────────────────── */
@@ -496,3 +500,26 @@ html:not(.dark) .active-nav-link {
   color: #1d4ed8 !important;
   background: rgba(37, 99, 235, 0.1) !important;
 }
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   MOBILE / RESPONSIVE POLISH
+   ══════════════════════════════════════════════════════════════════════════ */
+html, body { max-width: 100%; }
+img, svg, video { max-width: 100%; }
+h1, h2, h3 { overflow-wrap: anywhere; }
+
+@media (max-width: 640px) {
+  .cmd-backdrop { padding-top: 8vh; }
+  .section-label { font-size: 0.68rem; letter-spacing: 0.12em; }
+  .btn-primary, .btn-ghost { padding-left: 18px; padding-right: 18px; }
+}
+
+/* Opaque nav while the mobile menu is open (it used to be see-through over the hero text) */
+.navbar-open {
+  background: rgba(2, 8, 23, 0.98) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+}
+html:not(.dark) .navbar-open { background: rgba(255, 255, 255, 0.98) !important; }

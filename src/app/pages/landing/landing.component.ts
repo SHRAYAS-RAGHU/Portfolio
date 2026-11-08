@@ -1,9 +1,9 @@
-import { Component, inject, signal, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, inject, signal, computed, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule, PlatformLocation } from '@angular/common';
 import { DataService } from '../../services/data.service';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
-import { PersonalInfo, Stat, SkillDomain, TimelineItem } from '../../models/portfolio.models';
+import { PersonalInfo, Stat, SkillDomain, TimelineItem, Achievement, EducationItem, Certification } from '../../models/portfolio.models';
 
 @Component({
   selector: 'app-landing',
@@ -28,11 +28,11 @@ import { PersonalInfo, Stat, SkillDomain, TimelineItem } from '../../models/port
             {{ personal()?.openTo || 'Open to opportunities' }}
           </div>
 
-          <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl text-white mb-6 leading-none hero-item" style="animation-delay:0.1s">
+          <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl xl:text-8xl text-white mb-6 leading-none hero-item" style="animation-delay:0.1s">
             {{ personal()?.name || 'YOUR NAME' }}<span class="gradient-text">.</span>
           </h1>
 
-          <div class="text-xl sm:text-2xl lg:text-3xl text-slate-400 font-display mb-6 hero-item" style="animation-delay:0.2s">
+          <div class="text-lg sm:text-2xl lg:text-3xl text-slate-400 font-display mb-6 hero-item" style="animation-delay:0.2s">
             <span class="text-cyan-400">&#123; </span>
             <span>{{ currentTitle() }}</span>
             <span class="text-blue-400 blink-cursor">|</span>
@@ -79,7 +79,7 @@ import { PersonalInfo, Stat, SkillDomain, TimelineItem } from '../../models/port
     <!-- ═══════════ 2. ABOUT ═══════════ -->
     <section class="section-padding" id="about">
       <div class="section-container">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div appScrollReveal>
             <p class="section-label mb-4">About Me</p>
             <h2 class="font-display text-4xl text-white mb-6">
@@ -97,20 +97,25 @@ import { PersonalInfo, Stat, SkillDomain, TimelineItem } from '../../models/port
 
           <div appScrollReveal [delay]="150">
             <div class="photo-card relative">
-              <!-- Real photo: path dynamically resolved with base href -->
-              <img *ngIf="personal()?.photo && !photoFailed()"
-                   [src]="personal()?.photo"
-                   alt="Shrayas Raghunathan"
-                   class="photo-img"
-                   (error)="photoFailed.set(true)">
-
-              <!-- Fallback placeholder: shown if no photo is set or the file is missing -->
-              <div *ngIf="!personal()?.photo || photoFailed()" class="photo-placeholder">
-                <div class="text-8xl mb-4 float-emoji">&#128104;&#8205;&#128187;</div>
-                <p class="text-slate-500 text-sm font-mono text-center">
+              <!-- Placeholder always sits behind the photo, so a slow/failed load never leaves an empty frame -->
+              <div class="photo-placeholder" [class.photo-placeholder-hidden]="photoLoaded()">
+                <div class="placeholder-initials">SR</div>
+                <p class="text-slate-500 text-xs font-mono text-center mt-3" *ngIf="photoFailed()">
                   // Add profile.jpg to<br>src/assets/images/
                 </p>
               </div>
+
+              <!-- Photo: path comes from data.json (relative, so it works under /Portfolio/).
+                   On error it retries once with a cache-buster before giving up. -->
+              <img *ngIf="photoSrc() && !photoFailed()"
+                   [src]="photoSrc()"
+                   alt="Shrayas Raghunathan"
+                   class="photo-img"
+                   [class.photo-img-visible]="photoLoaded()"
+                   loading="eager"
+                   decoding="async"
+                   (load)="photoLoaded.set(true)"
+                   (error)="onPhotoError()">
               <div class="photo-decoration-1"></div>
               <div class="photo-decoration-2"></div>
             </div>
@@ -155,54 +160,108 @@ import { PersonalInfo, Stat, SkillDomain, TimelineItem } from '../../models/port
       </div>
     </section>
 
-    <!-- ═══════════ 4. ACHIEVEMENTS ═══════════ -->
+    <!-- ═══════════ 4. ACHIEVEMENTS (from data.json) ═══════════ -->
     <section class="section-padding" id="achievements">
       <div class="section-container">
-        <div appScrollReveal class="text-center mb-14">
+        <div appScrollReveal class="text-center mb-10 sm:mb-14">
           <p class="section-label mb-4">Impact</p>
-          <h2 class="font-display text-4xl text-white">
+          <h2 class="font-display text-3xl sm:text-4xl text-white">
             Major <span class="gradient-text">Achievements</span>
           </h2>
+          <p class="text-slate-400 mt-4 max-w-xl mx-auto font-body">
+            Recognition, hackathons, research and leadership
+          </p>
         </div>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div appScrollReveal [delay]="0" class="achievement-card glass-card p-8 text-center group">
-            <div class="achievement-icon">&#128640;</div>
-            <h3 class="font-display text-xl text-white mt-4 mb-2">REPLACE WITH YOUR ACHIEVEMENT</h3>
-            <p class="text-slate-400 font-body text-sm leading-relaxed">Brief description of the achievement, impact, and context. [REPLACE]</p>
-          </div>
-          <div appScrollReveal [delay]="100" class="achievement-card glass-card p-8 text-center group">
-            <div class="achievement-icon">&#129504;</div>
-            <h3 class="font-display text-xl text-white mt-4 mb-2">REPLACE WITH YOUR ACHIEVEMENT</h3>
-            <p class="text-slate-400 font-body text-sm leading-relaxed">Brief description of the achievement, impact, and context. [REPLACE]</p>
-          </div>
-          <div appScrollReveal [delay]="200" class="achievement-card glass-card p-8 text-center group">
-            <div class="achievement-icon">&#9889;</div>
-            <h3 class="font-display text-xl text-white mt-4 mb-2">REPLACE WITH YOUR ACHIEVEMENT</h3>
-            <p class="text-slate-400 font-body text-sm leading-relaxed">Brief description of the achievement, impact, and context. [REPLACE]</p>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div *ngFor="let a of achievements(); let i = index"
+            appScrollReveal [delay]="(i % 4) * 80"
+            class="achievement-card glass-card p-5 sm:p-6 flex flex-col group">
+
+            <div class="flex items-center justify-between mb-4">
+              <span class="achievement-icon">{{ a.icon }}</span>
+              <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full"
+                [ngClass]="getAchievementBadge(a.category)">{{ a.category }}</span>
+            </div>
+
+            <div class="achievement-highlight gradient-text font-display">{{ a.highlight }}</div>
+            <h3 class="font-display text-base text-white mt-2 mb-2 leading-snug">{{ a.title }}</h3>
+            <p class="text-slate-400 font-body text-sm leading-relaxed flex-1">{{ a.description }}</p>
+
+            <div class="flex items-center justify-between mt-4 pt-3 border-t border-blue-900/20">
+              <span class="text-xs font-mono text-slate-500">{{ a.year }}</span>
+              <a *ngIf="a.link" [href]="a.link" target="_blank" rel="noopener"
+                class="text-xs font-mono text-blue-400 hover:text-blue-300 transition-colors">Read ↗</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ═══════════ 4b. EDUCATION & LEARNING (from data.json) ═══════════ -->
+    <section class="section-padding bg-dark-800/30" id="education">
+      <div class="section-container">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16">
+
+          <div appScrollReveal>
+            <p class="section-label mb-4">Education</p>
+            <h2 class="font-display text-3xl sm:text-4xl text-white mb-8">
+              Where I <span class="gradient-text">studied</span>
+            </h2>
+            <div class="space-y-4">
+              <div *ngFor="let e of education()" class="glass-card p-5">
+                <div class="flex flex-wrap items-start justify-between gap-2">
+                  <h3 class="font-display text-lg text-white">{{ e.institution }}</h3>
+                  <span class="text-xs font-mono text-slate-500">{{ e.period }}</span>
+                </div>
+                <p class="text-slate-400 font-body text-sm mt-1">{{ e.degree }}</p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                  <span class="tag-chip text-[11px]">{{ e.score }}</span>
+                  <span *ngIf="e.note" class="tag-chip active text-[11px]">{{ e.note }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div appScrollReveal [delay]="120">
+            <p class="section-label mb-4">Continuous Learning</p>
+            <h2 class="font-display text-3xl sm:text-4xl text-white mb-8">
+              Professional <span class="gradient-text">development</span>
+            </h2>
+            <div class="space-y-3">
+              <div *ngFor="let c of certifications()" class="glass-card p-4 flex items-start gap-3">
+                <span class="cert-dot"></span>
+                <div class="min-w-0">
+                  <h4 class="font-display text-sm sm:text-base text-white leading-snug">{{ c.title }}</h4>
+                  <p class="text-xs font-mono text-slate-500 mt-1">{{ c.provider }} · {{ c.topic }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- ═══════════ 5. MINI TIMELINE ═══════════ -->
-    <section class="section-padding bg-dark-800/30" id="journey">
+    <section class="section-padding" id="journey">
       <div class="section-container">
         <div appScrollReveal class="flex items-end justify-between mb-12">
           <div>
             <p class="section-label mb-4">Journey</p>
             <h2 class="font-display text-4xl text-white">Career <span class="gradient-text">Timeline</span></h2>
           </div>
-          <a routerLink="/timeline" class="btn-ghost text-sm hidden sm:flex">Full timeline</a>
+          <a routerLink="/timeline" class="btn-ghost text-sm !hidden sm:!inline-flex">Full timeline</a>
         </div>
 
         <div class="relative">
           <div class="timeline-line"></div>
           <div *ngFor="let item of timelineTeaser(); let i = index"
             appScrollReveal [delay]="i * 100"
-            class="timeline-item relative flex gap-8 mb-8 pl-12">
+            class="timeline-item relative flex gap-4 mb-6 sm:mb-8 pl-10 sm:pl-12">
             <div class="timeline-dot" [ngClass]="'timeline-dot-' + item.type"></div>
             <div class="glass-card p-5 flex-1">
-              <div class="flex items-start justify-between gap-4">
+              <div class="flex flex-col-reverse items-start sm:flex-row sm:justify-between gap-2 sm:gap-4">
                 <div>
                   <span class="section-label text-[11px]">{{ item.year }}</span>
                   <h4 class="font-display text-lg text-white mt-1">{{ item.title }}</h4>
@@ -224,10 +283,10 @@ import { PersonalInfo, Stat, SkillDomain, TimelineItem } from '../../models/port
     <!-- ═══════════ 6. CTA ═══════════ -->
     <section class="section-padding">
       <div class="section-container">
-        <div appScrollReveal class="cta-banner glass-card p-12 text-center relative overflow-hidden">
+        <div appScrollReveal class="cta-banner glass-card p-6 sm:p-12 text-center relative overflow-hidden">
           <div class="cta-glow"></div>
           <p class="section-label mb-6">Let's build something</p>
-          <h2 class="font-display text-4xl md:text-5xl text-white mb-6 relative z-10">
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl text-white mb-6 relative z-10">
             Open to <span class="gradient-text">new challenges.</span>
           </h2>
           <p class="text-slate-400 max-w-lg mx-auto mb-8 font-body relative z-10">
@@ -245,6 +304,10 @@ import { PersonalInfo, Stat, SkillDomain, TimelineItem } from '../../models/port
     /* ── HERO ── */
     .hero-section {
       min-height: calc(100vh - var(--navbar-height));
+      /* Compensate: app.component adds padding-top:72px, but hero needs to fill full viewport height
+         including that space, so min-height accounts for it */
+      min-height: calc(100vh - var(--navbar-height));
+      min-height: calc(100svh - var(--navbar-height));   /* mobile browsers: ignore the collapsing URL bar */
     }
 
     .hero-gradient {
@@ -281,6 +344,7 @@ import { PersonalInfo, Stat, SkillDomain, TimelineItem } from '../../models/port
       50%       { opacity: 0; }
     }
 
+    /* Scroll hint — visible by default, fades out on scroll */
     .scroll-hint {
       transition: opacity 0.4s ease, transform 0.4s ease;
       opacity: 1;
@@ -298,23 +362,44 @@ import { PersonalInfo, Stat, SkillDomain, TimelineItem } from '../../models/port
     }
 
     /* ── ABOUT ── */
-    .photo-card { aspect-ratio: 1; max-width: 400px; margin: 0 auto; }
+    .photo-card { aspect-ratio: 1; width: 100%; max-width: 400px; margin: 0 auto; position: relative; }
+
     .photo-img {
+      position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
       border-radius: 24px;
       border: 1px solid rgba(59,130,246,0.35);
       box-shadow: 0 0 40px rgba(59,130,246,0.2);
-      display: block;
+      opacity: 0;
+      transition: opacity 0.5s ease;
     }
+    .photo-img-visible { opacity: 1; }
+
     .photo-placeholder {
-      width:100%; height:100%;
+      position: absolute; inset: 0;
       background: rgba(10,22,40,0.8);
       border: 2px dashed rgba(59,130,246,0.3);
       border-radius: 24px;
       display: flex; flex-direction: column;
-      align-items: center; justify-content: center; padding: 40px;
+      align-items: center; justify-content: center; padding: 24px;
+      transition: opacity 0.4s ease;
     }
+    .photo-placeholder-hidden { opacity: 0; pointer-events: none; }
+    .placeholder-initials {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: clamp(3rem, 14vw, 5rem);
+      background: linear-gradient(135deg, #3b82f6, #22d3ee);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    /* ── ACHIEVEMENT CARDS ── */
+    .achievement-highlight { font-size: clamp(1.6rem, 6vw, 2rem); font-weight: 800; line-height: 1.1; }
+    .cert-dot {
+      flex-shrink: 0; width: 10px; height: 10px; margin-top: 6px; border-radius: 50%;
+      background: #22d3ee; box-shadow: 0 0 10px rgba(34,211,238,0.6);
+    }
+
     .photo-decoration-1 {
       position:absolute; top:-12px; right:-12px;
       width:80px; height:80px;
@@ -362,7 +447,7 @@ import { PersonalInfo, Stat, SkillDomain, TimelineItem } from '../../models/port
 export class LandingComponent implements OnInit, OnDestroy {
   private titleTimer?: ReturnType<typeof setInterval>;
   private dataService = inject(DataService);
-  private platformLocation = inject(PlatformLocation);
+private platformLocation = inject(PlatformLocation);
 
   personal       = signal<PersonalInfo | null>(null);
   stats          = signal<Stat[]>([]);
@@ -370,7 +455,21 @@ export class LandingComponent implements OnInit, OnDestroy {
   timelineTeaser = signal<TimelineItem[]>([]);
   currentTitle   = signal('Full Stack Engineer');
   hasScrolled    = signal(false);
-  photoFailed    = signal(false);
+  achievements   = signal<Achievement[]>([]);
+  education      = signal<EducationItem[]>([]);
+  certifications = signal<Certification[]>([]);
+
+  // ── profile photo state ──
+  photoLoaded = signal(false);
+  photoFailed = signal(false);
+  private photoRetry = signal(0);
+  private photoBase  = signal('');
+  /** photo URL, with a cache-buster appended on retry */
+  photoSrc = computed(() => {
+    const base = this.photoBase();
+    if (!base) return '';
+    return this.photoRetry() > 0 ? `${base}?r=${this.photoRetry()}` : base;
+  });
 
   private titles = [
     'Full Stack Engineer', 'AI / ML Researcher',
@@ -380,15 +479,21 @@ export class LandingComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.dataService.getData().subscribe(data => {
-      // Dynamically fix the photo path using the active base href (e.g. "/Portfolio/")
       if (data.personal && data.personal.photo) {
         const baseHref = this.platformLocation.getBaseHrefFromDOM() || '/';
         const cleanBase = baseHref.endsWith('/') ? baseHref : baseHref + '/';
-        const cleanPhoto = data.personal.photo.startsWith('/') ? data.personal.photo.slice(1) : data.personal.photo;
-        data.personal.photo = cleanBase + cleanPhoto;
-      }
 
+        // Only prepend if it hasn't already been prefixed
+        if (!data.personal.photo.startsWith(cleanBase)) {
+          const cleanPhoto = data.personal.photo.startsWith('/') ? data.personal.photo.slice(1) : data.personal.photo;
+          data.personal.photo = cleanBase + cleanPhoto;
+        }
+      }
       this.personal.set(data.personal);
+      this.photoBase.set(data.personal.photo || '');
+      this.achievements.set(data.achievements ?? []);
+      this.education.set(data.education ?? []);
+      this.certifications.set(data.certifications ?? []);
       this.stats.set(data.stats);
       this.skills.set(data.skills);
       this.timelineTeaser.set(data.timeline.slice(0, 3));
@@ -401,14 +506,36 @@ export class LandingComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    // Stop the rotating-title timer when leaving the page (previously leaked forever)
     if (this.titleTimer) clearInterval(this.titleTimer);
   }
 
+  /** Hide scroll indicator once user scrolls at all */
   @HostListener('window:scroll')
   onScroll() {
     if (window.scrollY > 80) {
       this.hasScrolled.set(true);
     }
+  }
+
+  /** Retry the photo once (cache-busted) before showing the placeholder permanently */
+  onPhotoError() {
+    if (this.photoRetry() < 1) {
+      this.photoRetry.set(this.photoRetry() + 1);
+    } else {
+      this.photoFailed.set(true);
+    }
+  }
+
+  getAchievementBadge(category: string): string {
+    const map: Record<string, string> = {
+      recognition: 'bg-amber-500/20 text-amber-400',
+      hackathon:   'bg-cyan-500/20 text-cyan-400',
+      research:    'bg-purple-500/20 text-purple-400',
+      leadership:  'bg-blue-500/20 text-blue-400',
+      academic:    'bg-green-500/20 text-green-400',
+    };
+    return map[category] || 'bg-slate-700/50 text-slate-400';
   }
 
   getSkillBarBg(hex: string): string {

@@ -49,7 +49,30 @@ import { Experience } from '../../models/portfolio.models';
              LEFT PANEL: Filters
              ══════════════════════════════════════════════════ -->
         <aside class="lg:w-72 flex-shrink-0">
-          <div class="filter-panel glass-card p-6 lg:sticky lg:top-24">
+
+          <!-- Phones/tablets: collapsible so results are not pushed far down the page -->
+          <button
+            type="button"
+            class="lg:hidden w-full flex items-center justify-between glass-card px-4 py-3 mb-4 text-left"
+            [attr.aria-expanded]="filtersOpen()"
+            (click)="toggleFilters()">
+            <span class="font-display text-base text-white">Filters &amp; search</span>
+            <span class="flex items-center gap-2">
+              @if (filterService.selectedTags().length > 0) {
+                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded-full">
+                  {{ filterService.selectedTags().length }} selected
+                </span>
+              }
+              <svg class="w-4 h-4 text-slate-400 transition-transform duration-300"
+                [class.rotate-180]="filtersOpen()"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </span>
+          </button>
+
+          <div [ngClass]="filtersOpen() ? 'block' : 'hidden lg:block'" class="lg:sticky lg:top-24">
+          <div class="filter-panel glass-card p-5 sm:p-6">
 
             <!-- Search input -->
             <div class="mb-6">
@@ -130,6 +153,7 @@ import { Experience } from '../../models/portfolio.models';
               </div>
             }
           </div>
+          </div>
         </aside>
 
         <!-- ══════════════════════════════════════════════════
@@ -173,11 +197,11 @@ import { Experience } from '../../models/portfolio.models';
           <div class="space-y-4">
             @for (exp of filterService.filteredExperiences(); track exp.id; let i = $index) {
               <div
-                class="experience-card glass-card p-6 cursor-default group"
+                class="experience-card glass-card p-4 sm:p-6 cursor-default group"
                 [style.animation-delay]="(i * 40) + 'ms'">
 
                 <!-- Card header -->
-                <div class="flex items-start justify-between gap-4 mb-3">
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4 mb-3">
                   <div class="flex-1 min-w-0">
                     <!-- Type + Year -->
                     <div class="flex items-center gap-2 mb-2">
@@ -199,7 +223,7 @@ import { Experience } from '../../models/portfolio.models';
                   </div>
 
                   <!-- Impact stat pill -->
-                  <div class="flex-shrink-0 text-right">
+                  <div class="sm:flex-shrink-0 sm:text-right">
                     <div class="impact-pill">
                       {{ exp.impact }}
                     </div>
@@ -248,6 +272,9 @@ import { Experience } from '../../models/portfolio.models';
       to   { opacity: 1; transform: translateX(0); }
     }
 
+    @media (max-width: 639px) {
+      .impact-pill { white-space: normal; display: inline-block; line-height: 1.4; }
+    }
     /* Impact stat pill */
     .impact-pill {
       font-family: 'JetBrains Mono', monospace;
@@ -278,6 +305,11 @@ export class ExperiencePageComponent implements OnInit {
   private dataService = inject(DataService);
 
   allTags = signal<string[]>([]);
+  filtersOpen = signal(false);   // mobile filter panel visibility
+
+  toggleFilters() {
+    this.filtersOpen.set(!this.filtersOpen());
+  }
 
   ngOnInit() {
     this.dataService.getData().subscribe(data => {

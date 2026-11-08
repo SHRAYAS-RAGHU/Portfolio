@@ -55,7 +55,7 @@ import { SystemDesign } from '../../models/portfolio.models';
 
       <div class="space-y-10">
         <div *ngFor="let design of designs(); let i = index" appScrollReveal [delay]="i * 80">
-          <div class="design-card glass-card p-8">
+          <div class="design-card glass-card p-5 sm:p-8">
 
             <!-- Header -->
             <div class="flex items-center gap-3 mb-3">

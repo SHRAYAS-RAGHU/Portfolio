@@ -101,6 +101,37 @@ export interface Research {
   type: ResearchType;
 }
 
+// ─── ACHIEVEMENTS ─────────────────────────────────────────────────────────
+export type AchievementCategory = 'recognition' | 'hackathon' | 'leadership' | 'academic' | 'research';
+
+export interface Achievement {
+  id: string;
+  title: string;
+  highlight: string;       // short, big number/phrase shown on the card (e.g. "₹50K")
+  description: string;
+  icon: string;
+  year: number;
+  category: AchievementCategory;
+  link: string | null;
+}
+
+// ─── EDUCATION & LEARNING ─────────────────────────────────────────────────
+export interface EducationItem {
+  id: string;
+  institution: string;
+  degree: string;
+  period: string;
+  score: string;
+  note: string | null;
+}
+
+export interface Certification {
+  id: string;
+  title: string;
+  provider: string;
+  topic: string;
+}
+
 // ─── ROOT DATA SHAPE ──────────────────────────────────────────────────────
 // This matches the top-level structure of data.json
 export interface PortfolioData {
@@ -112,6 +143,9 @@ export interface PortfolioData {
   projects: Project[];
   systemDesigns: SystemDesign[];
   research: Research[];
+  achievements: Achievement[];
+  education: EducationItem[];
+  certifications: Certification[];
   allTags: string[];
 }
 

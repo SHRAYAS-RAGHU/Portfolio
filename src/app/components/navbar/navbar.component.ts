@@ -18,13 +18,14 @@ import { DataService } from '../../services/data.service';
   template: `
     <nav
       class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      [class.navbar-glass]="isScrolled()">
+      [class.navbar-glass]="isScrolled()"
+      [class.navbar-open]="mobileMenuOpen()">
 
       <div class="section-container">
         <div class="flex items-center justify-between h-[72px]">
 
           <!-- LOGO -->
-          <a routerLink="/" class="flex items-center gap-3 group flex-shrink-0 mr-4">
+          <a routerLink="/" class="flex items-center gap-3 group flex-shrink-0 mr-4" (click)="closeMobileMenu()">
             <div class="logo-mark">
               <span class="text-blue-400 font-display font-bold text-xl">&lt;/&gt;</span>
             </div>
@@ -52,6 +53,17 @@ import { DataService } from '../../services/data.service';
 
           <!-- ACTIONS -->
           <div class="flex items-center gap-2">
+
+            <!-- Search icon: phones & tablets (the Cmd+K pill is desktop-only) -->
+            <button
+              class="xl:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-200"
+              aria-label="Search"
+              (click)="openCommandPalette.emit(); closeMobileMenu()">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+            </button>
 
             <!-- Command palette trigger -->
             <button
@@ -83,7 +95,7 @@ import { DataService } from '../../services/data.service';
             <a
               [href]="personal()?.resumeUrl || 'assets/resume.pdf'"
               download="Shrayas_Raghunathan_Resume.pdf"
-              class="hidden sm:flex btn-primary text-sm py-2 px-4">
+              class="!hidden sm:!inline-flex btn-primary text-sm py-2 px-4">
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
@@ -107,7 +119,7 @@ import { DataService } from '../../services/data.service';
 
         <!-- MOBILE MENU -->
         @if (mobileMenuOpen()) {
-          <div class="lg:hidden mobile-menu py-4 border-t border-blue-900/30">
+          <div class="lg:hidden mobile-menu py-4 border-t border-blue-900/30 max-h-[calc(100vh-72px)] overflow-y-auto">
             @for (link of navLinks; track link.path) {
               <a
                 [routerLink]="link.path"
