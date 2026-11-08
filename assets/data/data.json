@@ -755,6 +755,123 @@
       "impact": "0.001g dispensing precision — patented",
       "year": 2022,
       "featured": false
+},
+    {
+      "id": "exp_029",
+      "title": "Consumer Credit Servicing — Paperless Enrollment, Alerts & Registration UI",
+      "summary": "Expanded Consumer Credit Servicing by delivering paperless enrollment for Best Buy, dynamic customer alert enrollment in the pre-registration flow, and registration-flow UI screens for card-management journeys.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "Angular",
+        "Software Development",
+        "Project Delivery"
+      ],
+      "domain": [
+        "Backend",
+        "Frontend"
+      ],
+      "type": "project",
+      "impact": "Best Buy paperless enrollment live",
+      "year": 2026,
+      "featured": false
+    },
+    {
+      "id": "exp_030",
+      "title": "Multiple Offer Onboarding for MIL — Domain & CRUD API",
+      "summary": "Implemented Multiple Offer onboarding for Merchant Installment Loans, building a domain model and CRUD API integrated with the backend rules engine to support offer selection and dynamic Loan Note Agreement rendering.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "REST APIs",
+        "Software Development",
+        "Microservices"
+      ],
+      "domain": [
+        "Backend"
+      ],
+      "type": "project",
+      "impact": "Offer selection + dynamic LNA rendering",
+      "year": 2023,
+      "featured": false
+    },
+    {
+      "id": "exp_031",
+      "title": "ChargeAfter, DQT & Ensighten Integration for CitiPay",
+      "summary": "Integrated ChargeAfter into CitiPay flows with request-source validation to block unauthorised traffic. Delivered SMS-based DQT (Dynamic QR scan / click on Text) support and integrated Ensighten tracking to analyse and reduce customer dropouts.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "Security",
+        "REST APIs",
+        "Software Development"
+      ],
+      "domain": [
+        "Backend",
+        "Security"
+      ],
+      "type": "project",
+      "impact": "Request-source validation + dropout analytics",
+      "year": 2023,
+      "featured": false
+    },
+    {
+      "id": "exp_032",
+      "title": "OpenShift-to-AWS Migration Support & Production Release Ownership",
+      "summary": "Supported the OpenShift-to-AWS migration by resolving cloud-transition issues and improving production observability with structured Kibana logging. One of two engineers authorised for production deployments, owning controlled releases and production fixes.",
+      "tags": [
+        "AWS",
+        "OpenShift",
+        "DevOps",
+        "Debugging",
+        "Production Incident Resolution",
+        "Project Delivery"
+      ],
+      "domain": [
+        "DevOps",
+        "Backend"
+      ],
+      "type": "leadership",
+      "impact": "1 of 2 engineers authorised for prod deploys",
+      "year": 2025,
+      "featured": true
+    },
+    {
+      "id": "exp_033",
+      "title": "Cross-Microservice Data-Model Inconsistencies Caught in DEV",
+      "summary": "Identified and eliminated data-model inconsistencies across microservices in DEV, preventing downstream override, OTP and KIQ failures before production deployment.",
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "Microservices",
+        "Debugging",
+        "Software Development"
+      ],
+      "domain": [
+        "Backend"
+      ],
+      "type": "project",
+      "impact": "Prevented OTP / KIQ failures pre-production",
+      "year": 2024,
+      "featured": false
+    },
+    {
+      "id": "exp_034",
+      "title": "Vibration-Calibrated Powder Dispensing — PID Control",
+      "summary": "Developed a PID-based control algorithm using MPU-6050 3-axis vibration feedback to correlate vibration characteristics with powder output and dynamically regulate dispensing.",
+      "tags": [
+        "Embedded Systems",
+        "PID Control",
+        "Python",
+        "Research"
+      ],
+      "domain": [
+        "Research"
+      ],
+      "type": "research",
+      "impact": "Closed-loop dispensing via vibration feedback",
+      "year": 2022,
+      "featured": false
     }
   ],
   "projects": [
@@ -1171,5 +1288,137 @@
     "CNN",
     "Project Delivery",
     "Generative AI"
+  ],
+  "achievements": [
+    {
+      "id": "ach_001",
+      "title": "Certificate of Appreciation",
+      "highlight": "Jun '26",
+      "icon": "🏆",
+      "year": 2026,
+      "category": "recognition",
+      "description": "Recognised by the Head of US Personal Banking and Wealth Digital at Citi for outstanding performance across Consumer Credit Servicing and platform modernisation work.",
+      "link": null
+    },
+    {
+      "id": "ach_002",
+      "title": "Top-Rated Performer, 3 Years Running",
+      "highlight": "3 yrs",
+      "icon": "⭐",
+      "year": 2025,
+      "category": "recognition",
+      "description": "Highest team performance rating for three consecutive years, along with multiple Best Sprint Performer awards.",
+      "link": null
+    },
+    {
+      "id": "ach_003",
+      "title": "Winner — Indo Data Week Climate Data Hackathon",
+      "highlight": "Winner",
+      "icon": "🥇",
+      "year": 2022,
+      "category": "hackathon",
+      "description": "Built an ML/RL-based crop recommendation framework on multivariate climate and meteorological data. Wrote up the approach as a Medium article.",
+      "link": "https://medium.com/indo-data-week/intelligent-crop-production-solutions-based-on-the-impact-of-ambient-air-pollution-and-53c9a6be3c4d"
+    },
+    {
+      "id": "ach_004",
+      "title": "Honorable Mention — Citi AI-OPS Hackathon",
+      "highlight": "AI-OPS '23",
+      "icon": "🏅",
+      "year": 2023,
+      "category": "hackathon",
+      "description": "Developed a Splunk-based solution to identify CRS submission failures and automate retry-data population.",
+      "link": null
+    },
+    {
+      "id": "ach_005",
+      "title": "Peer-Reviewed Publication",
+      "highlight": "4 cites",
+      "icon": "📄",
+      "year": 2022,
+      "category": "research",
+      "description": "SciBERT-based NLP pipeline on 1.8M+ scientific abstracts for electrocatalyst discovery, published during the IIT Madras R&D internship.",
+      "link": null
+    },
+    {
+      "id": "ach_006",
+      "title": "Patented Embedded Engineering",
+      "highlight": "0.001 g",
+      "icon": "🔧",
+      "year": 2022,
+      "category": "research",
+      "description": "Sole software developer in a 3-member team on a stepper-driven powder dispensing system with precision down to 0.001 g.",
+      "link": null
+    },
+    {
+      "id": "ach_007",
+      "title": "Chairman / Treasurer — MIT Robotics Association",
+      "highlight": "₹50K",
+      "icon": "🤖",
+      "year": 2022,
+      "category": "leadership",
+      "description": "Led DEXBOT'22, a national-level technical symposium, securing ₹50K in corporate sponsorships and setting up a cross-disciplinary mentor team for Robotics and AI research.",
+      "link": null
+    },
+    {
+      "id": "ach_008",
+      "title": "Best Outgoing Student",
+      "highlight": "9.3 CGPA",
+      "icon": "🎓",
+      "year": 2022,
+      "category": "academic",
+      "description": "Graduated from Madras Institute of Technology, Anna University as Best Outgoing Student with a CGPA of 9.3.",
+      "link": null
+    }
+  ],
+  "education": [
+    {
+      "id": "edu_001",
+      "institution": "Madras Institute of Technology, Anna University",
+      "degree": "B.E., Electronics and Instrumentation Engineering",
+      "period": "2018 – 2022",
+      "score": "CGPA 9.3",
+      "note": "Best Outgoing Student"
+    },
+    {
+      "id": "edu_002",
+      "institution": "DAV School",
+      "degree": "Higher Secondary (2018) · Senior Secondary (2016)",
+      "period": "2016 – 2018",
+      "score": "97.25% · 10 CGPA",
+      "note": null
+    }
+  ],
+  "certifications": [
+    {
+      "id": "cert_001",
+      "title": "System Design Masterclass — FAANG 2026",
+      "provider": "Udemy",
+      "topic": "System Design"
+    },
+    {
+      "id": "cert_002",
+      "title": "Design Patterns & SOLID Principles",
+      "provider": "Udemy",
+      "topic": "Low-Level Design"
+    },
+    {
+      "id": "cert_003",
+      "title": "Introduction to Deep Learning with PyTorch",
+      "provider": "Udacity",
+      "topic": "Deep Learning"
+    },
+    {
+      "id": "cert_004",
+      "title": "Prediction & Control with Function Approximation",
+      "provider": "Coursera",
+      "topic": "Reinforcement Learning"
+    },
+    {
+      "id": "cert_005",
+      "title": "Fundamentals of Reinforcement Learning",
+      "provider": "Coursera",
+      "topic": "Reinforcement Learning"
+    }
   ]
 }
