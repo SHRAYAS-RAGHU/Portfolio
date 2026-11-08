@@ -1,0 +1,346 @@
+/* ──────────────────────────────────────────────────────────────────────────
+   GLOBAL STYLES — Portfolio
+   All component-specific styles live in their own .scss files.
+   This file handles:
+     1. Tailwind directives
+     2. CSS custom properties (design tokens)
+     3. Base resets and body defaults
+     4. Shared utility classes (scrollbar, selection, glass morphism)
+     5. Global animations
+   ────────────────────────────────────────────────────────────────────────── */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── 1. CSS DESIGN TOKENS ───────────────────────────────────────────────── */
+:root {
+  /* Blue gradient stops used across the UI */
+  --blue-primary:    #3b82f6;
+  --blue-secondary:  #2563eb;
+  --blue-glow:       rgba(59, 130, 246, 0.4);
+  --blue-subtle:     rgba(59, 130, 246, 0.08);
+
+  /* Cyan accent */
+  --cyan-accent:     #22d3ee;
+
+  /* Dark backgrounds (dark mode default) */
+  --bg-base:         #020817;
+  --bg-card:         #0a1628;
+  --bg-elevated:     #0f2040;
+  --bg-border:       rgba(59, 130, 246, 0.15);
+
+  /* Text hierarchy */
+  --text-primary:    #f1f5f9;
+  --text-secondary:  #94a3b8;
+  --text-muted:      #475569;
+
+  /* Spacing rhythm */
+  --section-gap:     120px;
+
+  /* Navbar height (used for scroll offset calculations) */
+  --navbar-height:   72px;
+
+  /* Transition presets */
+  --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:   500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── 2. BASE RESETS ─────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Offset anchor jumps so navbar doesn't cover the heading */
+  scroll-padding-top: var(--navbar-height);
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  /* Subtle noise texture overlay for depth — purely decorative */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* ─── 3. CUSTOM SCROLLBAR ─────────────────────────────────────────────────── */
+/* Makes the scrollbar match the dark/blue theme on webkit browsers */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--blue-secondary);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-primary);
+}
+
+/* ─── 4. TEXT SELECTION ──────────────────────────────────────────────────── */
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: #fff;
+}
+
+/* ─── 5. TYPOGRAPHY DEFAULTS ─────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* ─── 6. GLASS MORPHISM CARD ─────────────────────────────────────────────── */
+/* Reusable glass-card class for floating panel effects */
+.glass-card {
+  background: rgba(10, 22, 40, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 16px;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+
+  &:hover {
+    border-color: rgba(59, 130, 246, 0.35);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.12);
+  }
+}
+
+/* ─── 7. GRADIENT TEXT UTILITY ───────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-warm {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── 8. SECTION LAYOUT ──────────────────────────────────────────────────── */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-padding {
+  padding-top: var(--section-gap);
+  padding-bottom: var(--section-gap);
+}
+
+/* Section label (small caps above heading) */
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--blue-primary);
+}
+
+/* ─── 9. ANIMATED UNDERLINE LINK ─────────────────────────────────────────── */
+.animated-link {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--blue-primary), var(--cyan-accent));
+    transition: width var(--transition-normal);
+  }
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+/* ─── 10. TAG CHIP ───────────────────────────────────────────────────────── */
+.tag-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  color: #93c5fd;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+
+  &:hover, &.active {
+    background: rgba(59, 130, 246, 0.25);
+    border-color: rgba(59, 130, 246, 0.5);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+  }
+
+  &.active {
+    background: rgba(59, 130, 246, 0.3);
+  }
+}
+
+/* ─── 11. BUTTON STYLES ──────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 27px;
+  background: transparent;
+  color: #93c5fd;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+
+  &:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.5);
+    color: #fff;
+  }
+}
+
+/* ─── 12. GLOWING DOT ────────────────────────────────────────────────────── */
+/* Used in the navbar and open-to-work badge */
+.glow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22d3ee;
+  box-shadow: 0 0 6px #22d3ee, 0 0 12px rgba(34, 211, 238, 0.5);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%        { transform: scale(1.3); opacity: 0.7; }
+}
+
+/* ─── 13. SCROLL-REVEAL BASE STATE ───────────────────────────────────────── */
+/* Elements start invisible; the IntersectionObserver directive adds .revealed */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── 14. PAGE TRANSITION WRAPPER ─────────────────────────────────────────── */
+/* Applied via router outlet animation in AppComponent */
+.page-enter {
+  animation: fadeUp 0.4s ease forwards;
+}
+
+/* ─── 15. GRID BACKGROUNDS ───────────────────────────────────────────────── */
+/* Subtle dot grid for hero section depth */
+.dot-grid {
+  background-image: radial-gradient(rgba(59, 130, 246, 0.2) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ─── 16. FOCUS STATES (Accessibility) ───────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--blue-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─── 17. LOADING SHIMMER ────────────────────────────────────────────────── */
+.shimmer {
+  background: linear-gradient(90deg,
+    var(--bg-card) 0%,
+    rgba(59, 130, 246, 0.08) 50%,
+    var(--bg-card) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s linear infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* ─── 18. COMMAND PALETTE BACKDROP ───────────────────────────────────────── */
+.cmd-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 8, 23, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 15vh;
+  animation: fadeIn 0.15s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── 19. RESPONSIVE TYPOGRAPHY SCALE ───────────────────────────────────── */
+@layer base {
+  html { font-size: 16px; }
+
+  @screen sm  { html { font-size: 16px; } }
+  @screen lg  { html { font-size: 17px; } }
+  @screen xl  { html { font-size: 18px; } }
+}
