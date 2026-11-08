@@ -1,4 +1,4 @@
-import { Component, inject, signal, OnInit, HostListener } from '@angular/core';
+import { Component, inject, signal, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../../services/data.service';
@@ -346,7 +346,8 @@ import { PersonalInfo, Stat, SkillDomain, TimelineItem } from '../../models/port
     }
   `]
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent implements OnInit, OnDestroy {
+  private titleTimer?: ReturnType<typeof setInterval>;
   private dataService = inject(DataService);
 
   personal       = signal<PersonalInfo | null>(null);
@@ -370,10 +371,15 @@ export class LandingComponent implements OnInit {
       this.timelineTeaser.set(data.timeline.slice(0, 3));
     });
 
-    setInterval(() => {
+    this.titleTimer = setInterval(() => {
       this.titleIndex = (this.titleIndex + 1) % this.titles.length;
       this.currentTitle.set(this.titles[this.titleIndex]);
     }, 3000);
+  }
+
+  ngOnDestroy() {
+    // Stop the rotating-title timer when leaving the page (previously leaked forever)
+    if (this.titleTimer) clearInterval(this.titleTimer);
   }
 
   /** Hide scroll indicator once user scrolls at all */

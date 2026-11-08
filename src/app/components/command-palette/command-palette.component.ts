@@ -6,6 +6,7 @@ import {
   signal,
   computed,
   OnInit,
+  OnDestroy,
   ElementRef,
   ViewChild,
   AfterViewInit
@@ -110,7 +111,7 @@ import { CommandResult } from '../../models/portfolio.models';
     .max-h-96::-webkit-scrollbar-thumb { background: #1e40af; border-radius: 2px; }
   `]
 })
-export class CommandPaletteComponent implements OnInit, AfterViewInit {
+export class CommandPaletteComponent implements OnInit, AfterViewInit, OnDestroy {
   @Output() close = new EventEmitter<void>();
   @ViewChild('searchInput') searchInput!: ElementRef<HTMLInputElement>;
 
@@ -133,7 +134,13 @@ export class CommandPaletteComponent implements OnInit, AfterViewInit {
   });
 
   ngOnInit() {
+    // Prevent the page behind the palette from scrolling
+    document.body.style.overflow = 'hidden';
     this.dataService.getCommandResults().subscribe(r => this.allResults.set(r));
+  }
+
+  ngOnDestroy() {
+    document.body.style.overflow = '';
   }
 
   ngAfterViewInit() {

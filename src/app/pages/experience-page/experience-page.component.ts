@@ -261,9 +261,13 @@ import { Experience } from '../../models/portfolio.models';
     }
 
     /* Sticky filter panel height management */
-    .filter-panel {
-      max-height: calc(100vh - 120px);
-      overflow-y: auto;
+    /* Inner scrolling only when the panel is sticky (desktop); on mobile it flows with the page */
+    @media (min-width: 1024px) {
+      .filter-panel {
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
     }
     .filter-panel::-webkit-scrollbar { width: 3px; }
     .filter-panel::-webkit-scrollbar-thumb { background: #1e40af; }

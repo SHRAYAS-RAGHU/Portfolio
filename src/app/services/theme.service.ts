@@ -1,36 +1,37 @@
 /**
  * services/theme.service.ts
  *
- * Manages dark/light mode preference.
- * Persists choice to localStorage so it survives page refreshes.
- * Toggles the 'dark' class on <html> — Tailwind's darkMode:'class' picks this up.
+ * Dark / light mode.
+ *  - Persists the choice in localStorage
+ *  - Toggles the "dark" class on <html>; the light palette lives in styles.scss
+ *    under `html:not(.dark)` so every component switches together
+ *  - Adds a short-lived "theme-transition" class so colours fade instead of snapping
  */
-
 import { Injectable, signal, effect } from '@angular/core';
-
-export type Theme = 'dark' | 'light';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
-  // Reactive signal — any component can read isDark() directly
   isDark = signal<boolean>(true);
 
   constructor() {
-    // Restore saved preference on startup
-    const saved = localStorage.getItem('portfolio-theme') as Theme | null;
-    if (saved) {
-      this.isDark.set(saved === 'dark');
-    }
+    try {
+      const saved = localStorage.getItem('portfolio-theme');
+      if (saved === 'light') this.isDark.set(false);
+    } catch { /* storage unavailable (private mode) - stay on default dark */ }
 
-    // Apply class to <html> whenever the signal changes
     effect(() => {
       const dark = this.isDark();
-      document.documentElement.classList.toggle('dark', dark);
-      localStorage.setItem('portfolio-theme', dark ? 'dark' : 'light');
+      const root = document.documentElement;
+      root.classList.toggle('dark', dark);
+      root.style.colorScheme = dark ? 'dark' : 'light';
+      try { localStorage.setItem('portfolio-theme', dark ? 'dark' : 'light'); } catch { /* ignore */ }
     });
   }
 
   toggle() {
-    this.isDark.update(v => !v);
+    const root = document.documentElement;
+    root.classList.add('theme-transition');
+    this.isDark.set(!this.isDark());
+    setTimeout(() => root.classList.remove('theme-transition'), 450);
   }
 }

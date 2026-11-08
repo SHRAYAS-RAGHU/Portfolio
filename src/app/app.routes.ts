@@ -12,37 +12,37 @@ export const routes: Routes = [
     path: '',
     loadComponent: () =>
       import('./pages/landing/landing.component').then(m => m.LandingComponent),
-    title: 'Home — YOUR NAME',
+    title: 'Home — Shrayas Raghunathan',
   },
   {
     path: 'experience',
     loadComponent: () =>
       import('./pages/experience-page/experience-page.component').then(m => m.ExperiencePageComponent),
-    title: 'Experience — YOUR NAME',
+    title: 'Experience — Shrayas Raghunathan',
   },
   {
     path: 'projects',
     loadComponent: () =>
       import('./pages/projects-page/projects-page.component').then(m => m.ProjectsPageComponent),
-    title: 'Projects — YOUR NAME',
+    title: 'Projects — Shrayas Raghunathan',
   },
   {
     path: 'system-design',
     loadComponent: () =>
       import('./pages/system-design-page/system-design-page.component').then(m => m.SystemDesignPageComponent),
-    title: 'System Design — YOUR NAME',
+    title: 'System Design — Shrayas Raghunathan',
   },
   {
     path: 'research',
     loadComponent: () =>
       import('./pages/research-page/research-page.component').then(m => m.ResearchPageComponent),
-    title: 'Research — YOUR NAME',
+    title: 'Research — Shrayas Raghunathan',
   },
   {
     path: 'timeline',
     loadComponent: () =>
       import('./pages/timeline-page/timeline-page.component').then(m => m.TimelinePageComponent),
-    title: 'Timeline — YOUR NAME',
+    title: 'Timeline — Shrayas Raghunathan',
   },
   // Catch-all: redirect unknown paths to home
   {

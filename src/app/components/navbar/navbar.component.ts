@@ -81,8 +81,8 @@ import { DataService } from '../../services/data.service';
 
             <!-- Download Resume -->
             <a
-              [href]="personal()?.resumeUrl || '#'"
-              target="_blank"
+              [href]="personal()?.resumeUrl || 'assets/resume.pdf'"
+              download="Shrayas_Raghunathan_Resume.pdf"
               class="hidden sm:flex btn-primary text-sm py-2 px-4">
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -118,8 +118,8 @@ import { DataService } from '../../services/data.service';
               </a>
             }
             <a
-              [href]="personal()?.resumeUrl || '#'"
-              target="_blank"
+              [href]="personal()?.resumeUrl || 'assets/resume.pdf'"
+              download="Shrayas_Raghunathan_Resume.pdf"
               class="mt-3 btn-primary w-full justify-center text-sm">
               Download Resume
             </a>
@@ -206,6 +206,7 @@ export class NavbarComponent {
 
   constructor() {
     this.dataService.getPersonal().subscribe(p => this.personal.set(p));
+    this.onScroll();
   }
 
   toggleMobileMenu() {
