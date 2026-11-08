@@ -1,0 +1,58 @@
+# .github/workflows/deploy.yml
+#
+# Auto-deploys the Angular app to GitHub Pages on every push to main.
+# The built output from dist/portfolio goes to the gh-pages branch.
+#
+# SETUP STEPS:
+#  1. Go to your GitHub repo → Settings → Pages
+#  2. Set Source to "Deploy from a branch"
+#  3. Select branch: gh-pages, folder: / (root)
+#  4. Make sure GITHUB_TOKEN has write permissions:
+#     Settings → Actions → General → Workflow permissions → "Read and write"
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+# Allow only one concurrent deployment
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Angular app
+        # REPLACE 'portfolio' with your actual GitHub repository name
+        run: npm run build -- --base-href "/portfolio/"
+        env:
+          NODE_ENV: production
+
+      # GitHub Pages doesn't support Angular's HTML5 routing — 404s on refresh.
+      # Copying index.html to 404.html is the standard fix.
+      - name: Copy index.html to 404.html for routing support
+        run: cp dist/portfolio/browser/index.html dist/portfolio/browser/404.html
+
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/portfolio/browser
+          # Keeps your custom domain config if you have one
+          keep_files: false
